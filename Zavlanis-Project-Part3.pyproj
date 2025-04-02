@@ -25,6 +25,7 @@
     <Compile Include="Scripts\decision_tree_regression_predict.py" />
     <Compile Include="Scripts\preprocess.py" />
     <Compile Include="Scripts\linear_regression_predict.py" />
+    <Compile Include="Scripts\train_bayes_classifier.py" />
     <Compile Include="Scripts\train_decision_tree_regression_model.py" />
     <Compile Include="Scripts\train_linear_regression_model.py" />
   </ItemGroup>

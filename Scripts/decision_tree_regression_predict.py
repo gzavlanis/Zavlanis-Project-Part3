@@ -1,7 +1,8 @@
 import pandas as pd
 import joblib
+import matplotlib.pyplot as plt
 
-def make_predictions(input_data, model_path, output_path):
+def make_predictions(input_data, model_path, output_path, plot_path):
     data = pd.read_csv(input_data)
     model = joblib.load(model_path)
 
@@ -37,5 +38,17 @@ def make_predictions(input_data, model_path, output_path):
     data.to_csv(output_path, index = False)
     print(f"Predictions saved to {output_path}")
 
+    plt.figure(figsize = (10, 6))
+    plt.plot(data['Final Exam'], label = "Actual Grades", color = 'blue', marker = 'o')
+    plt.plot(data['Predicted Final'], label = "Predicted Grades", color = 'red', marker = 'x')
+    plt.title("Actual vs Predicted Grades")
+    plt.xlabel("Samples")
+    plt.ylabel("Grades")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(plot_path)
+    plt.show()
+    print(f"Plot saved to {plot_path}")
+
 if __name__ == "__main__":
-    make_predictions("./Data/processed_data.csv", "./Models/decision_tree_model.pkl", "./Results/decision_tree_regression_predictions.csv")
+    make_predictions("./Data/processed_data.csv", "./Models/decision_tree_model.pkl", "./Results/decision_tree_regression_predictions.csv", "./Results/Plots/decision_tree_results.png")
