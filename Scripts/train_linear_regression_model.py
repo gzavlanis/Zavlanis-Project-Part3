@@ -54,4 +54,4 @@ def train_model(data_path, model_path):
     print(f"Model saved to {model_path}")
 
 if __name__ == "__main__":
-    train_model("./Data/processed_data.csv", "./Models/linear_regression_model.pkl")
+    train_model("../Data/processed_data.csv", "../Models/linear_regression_model.pkl")

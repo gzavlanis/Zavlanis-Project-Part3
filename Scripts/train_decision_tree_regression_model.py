@@ -59,4 +59,4 @@ def train_model(data_path, model_path):
     print(f"\nModel saved to {model_path}")
 
 if __name__ == "__main__":
-    train_model("./Data/processed_data.csv", "./Models/decision_tree_model.pkl")
+    train_model("../Data/processed_data.csv", "../Models/decision_tree_model.pkl")

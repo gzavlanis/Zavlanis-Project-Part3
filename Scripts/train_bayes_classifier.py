@@ -51,7 +51,7 @@ def train_bayes_classifier(data_file, model_file):
     plt.figure(figsize = (8, 6))
     sns.heatmap(report_df.iloc[:-1, :-1], annot = True, cmap = "Blues")
     plt.title("Classification Report Heatmap")
-    plt.savefig("./Results/Plots/classification_report_heatmap.png")
+    plt.savefig("../Results/Plots/classification_report_heatmap.png")
     plt.show()
 
     with open(model_file, 'wb') as f:
@@ -59,4 +59,4 @@ def train_bayes_classifier(data_file, model_file):
     print(f"Model saved to {model_file}")
 
 if __name__ == "__main__":
-    train_bayes_classifier("./Data/categorized_data.csv", "./Models/naive_bayes_model.pkl")
+    train_bayes_classifier("../Data/categorized_data.csv", "../Models/naive_bayes_model.pkl")

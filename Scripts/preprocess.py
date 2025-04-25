@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-def preprocess_data(input_path, output_path, categorized_path):
+def preprocess_data(input_path, output_path, categorized_path, avg_path):
     data = pd.read_excel(input_path, header = [0, 1])
     data.columns = [' '.join(col).strip() for col in data.columns.values]
 
@@ -21,9 +19,19 @@ def preprocess_data(input_path, output_path, categorized_path):
     data.to_csv(output_path, index = False)
     print(f"Data saved to {output_path}")
 
+    # Aggregate columns to work with average values for clustering
+    avg_data = pd.DataFrame()
+    avg_data["Homework Avg"] = data[[f"Homework Assignments {i}" for i in range(1, 5)]].mean(axis = 1)
+    avg_data["Compulsory Activities Avg"] = data[[f"Compulsory Activities {i}" for i in range(1, 9)]].mean(axis = 1)
+    avg_data["Optional Activities Avg"] = data[[f"Optional Activities {i}" for i in range(1, 11)]].mean(axis = 1)
+    avg_data["Final Exam"] = data["Final Exam"]
+    avg_data = avg_data.round(4)
+    avg_data.to_csv(avg_path, index = False)
+    print(f"AVG data saved to {avg_path}")
+
     data['Category'] = pd.cut(data['Final Exam'], bins = bins, labels = labels)
     data.to_csv(categorized_path, index = False)
     print(f"Categorized data saved to {categorized_path}")
 
 if __name__ == "__main__":
-    preprocess_data("./Data/grades.xlsx", "./Data/processed_data.csv", "./Data/categorized_data.csv")
+    preprocess_data("../Data/grades.xlsx", "../Data/processed_data.csv", "../Data/categorized_data.csv", "../Data/avg_data.csv")
