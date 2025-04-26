@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
 
+# The same process of clustering, but using the original data and not the AVG data.
 def train_model(data_path, model_path, elbow_method_path, clustered_data_path, clusters_plot_path):
     data = pd.read_csv(data_path)
     scaler = StandardScaler()
@@ -31,7 +32,7 @@ def train_model(data_path, model_path, elbow_method_path, clustered_data_path, c
     plt.savefig(elbow_method_path)
     plt.show()
 
-    optimal_clusters = 9 # Assuming the optimal number of clusters is determined from the Elbow Method (e.g., 6 clusters)
+    optimal_clusters = 10 # Assuming the optimal number of clusters is determined from the Elbow Method (e.g., 4 clusters)
     kmeans = KMeans(n_clusters = optimal_clusters, random_state = 42) # Apply K-means clustering with the optimal number of clusters
     kmeans.fit(scaled_data)
 
@@ -57,4 +58,5 @@ def train_model(data_path, model_path, elbow_method_path, clustered_data_path, c
     plt.show()
 
 if __name__ == "__main__":
-    train_model("../Data/avg_data.csv", "../Models/linear_regression_model.pkl", "../Results/Plots/elbow_method.png", "../Results/clustered_data.csv", "../Results/Plots/clusters.png")
+    train_model("../Data/processed_data.csv", "../Models/linear_regression_model_2.pkl", "../Results/Plots/elbow_method_2.png", "../Results/clustered_data_2.csv", "../Results/Plots/clusters_2.png")
+# Process works better with avg data.
