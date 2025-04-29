@@ -35,7 +35,7 @@ def train_model(data_path, model_path, clustered_data_path, dendrogram_path, clu
     print("\nCluster Summary:")
     print(cluster_summary)
 
-    pca = PCA(n_components = 2)
+    pca = PCA(n_components = 4)
     pca_data = pca.fit_transform(data)
     plt.scatter(pca_data[:, 0], pca_data[:, 1], c = hc.labels_)
     plt.title('Clustering of Student Performance')

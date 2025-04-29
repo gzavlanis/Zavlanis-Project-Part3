@@ -32,7 +32,7 @@ def train_model(data_path, model_path, elbow_method_path, clustered_data_path, c
     plt.savefig(elbow_method_path)
     plt.show()
 
-    optimal_clusters = 10 # Assuming the optimal number of clusters is determined from the Elbow Method (e.g., 4 clusters)
+    optimal_clusters = 6 # Assuming the optimal number of clusters is determined from the Elbow Method (e.g., 6 clusters)
     kmeans = KMeans(n_clusters = optimal_clusters, random_state = 42) # Apply K-means clustering with the optimal number of clusters
     kmeans.fit(scaled_data)
 
@@ -48,9 +48,9 @@ def train_model(data_path, model_path, elbow_method_path, clustered_data_path, c
     print("\nCluster Summary:")
     print(cluster_summary)
 
-    pca = PCA(n_components = 2)
+    pca = PCA(n_components = 17)
     pca_data = pca.fit_transform(data)
-    plt.scatter(pca_data[:, 0], pca_data[:, 1], c = kmeans.labels_)
+    plt.scatter(pca_data[:, 0], pca_data[:, 1], c = kmeans.labels_) # plot first two components relationship
     plt.title('Clustering of Student Performance')
     plt.xlabel('PCA Component 1')
     plt.ylabel('PCA Component 2')
