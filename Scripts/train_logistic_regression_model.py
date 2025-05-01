@@ -61,4 +61,4 @@ def train_model(input_data, model_path, confusion_matrix_path, roc_curve_path):
     plt.show()
 
 if __name__ == "__main__":
-    train_model("../Data/avg_data.csv", "../Models/linear_regression_model.pkl", "../Results/Plots/Logistic_regression_conf_matrix.png", "../Results/Plots/ROC_Curve.png")
+    train_model("../Data/avg_data.csv", "../Models/logistic_regression_model.pkl", "../Results/Plots/Logistic_regression_conf_matrix.png", "../Results/Plots/ROC_Curve.png")
