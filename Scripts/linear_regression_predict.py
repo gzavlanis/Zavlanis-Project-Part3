@@ -51,4 +51,4 @@ def make_predictions(input_data, model_path, output_path, plot_path):
     print(f"Plot saved to {plot_path}")
 
 if __name__ == "__main__":
-    make_predictions("./Data/processed_data.csv", "./Models/linear_regression_model.pkl", "./Results/linear_regression_predictions.csv", "./Results/Plots/linear_regression_results.png")
+    make_predictions("../Data/processed_data.csv", "../Models/linear_regression_model.pkl", "../Results/linear_regression_predictions.csv", "../Results/Plots/linear_regression_results.png")

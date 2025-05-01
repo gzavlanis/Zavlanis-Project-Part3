@@ -1,6 +1,6 @@
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
@@ -8,7 +8,7 @@ import pickle
 # The same process of clustering, but using the original data and not the AVG data.
 def train_model(data_path, model_path, elbow_method_path, clustered_data_path, clusters_plot_path):
     data = pd.read_csv(data_path)
-    scaler = StandardScaler()
+    scaler = MinMaxScaler()
     scaled_data = scaler.fit_transform(data)
     print(scaled_data)
 
