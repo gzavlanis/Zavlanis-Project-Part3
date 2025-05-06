@@ -37,8 +37,8 @@ def train_model(input_data, model_path, plot_path):
     plt.ylabel("Predicted Final Grades")
     plt.title("Predicted vs Actual Final Grades")
     plt.legend()
-    plt.savefig(plot_path)
     plt.show()
+    plt.savefig(plot_path)
 
     # Plot train data predictions
     plt.figure(figsize = (8, 6))

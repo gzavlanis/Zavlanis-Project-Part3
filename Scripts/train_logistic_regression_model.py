@@ -31,8 +31,8 @@ def train_model(input_data, model_path, confusion_matrix_path, roc_curve_path):
     plt.xlabel("Predicted Labels")
     plt.ylabel("Actual Labels")
     plt.title("Confusion Matrix")
-    plt.savefig(confusion_matrix_path, dpi = 300)
     plt.show()
+    plt.savefig(confusion_matrix_path, dpi = 300)
 
     joblib.dump(model, model_path)
     print(f"Model saved to {model_path}")
@@ -57,8 +57,8 @@ def train_model(input_data, model_path, confusion_matrix_path, roc_curve_path):
     plt.ylabel("True Positive Rate")
     plt.title("ROC Curve")
     plt.legend()
-    plt.savefig(roc_curve_path, dpi = 300)
     plt.show()
+    plt.savefig(roc_curve_path, dpi = 300)
 
 if __name__ == "__main__":
     train_model("../Data/avg_data.csv", "../Models/logistic_regression_model.pkl", "../Results/Plots/Logistic_regression_conf_matrix.png", "../Results/Plots/ROC_Curve.png")

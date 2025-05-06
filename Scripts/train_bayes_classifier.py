@@ -51,8 +51,8 @@ def train_bayes_classifier(data_file, model_file):
     plt.figure(figsize = (8, 6))
     sns.heatmap(report_df.iloc[:-1, :-1], annot = True, cmap = "Blues")
     plt.title("Classification Report Heatmap")
-    plt.savefig("../Results/Plots/classification_report_heatmap.png")
     plt.show()
+    plt.savefig("../Results/Plots/classification_report_heatmap.png")
 
     with open(model_file, 'wb') as f:
         pickle.dump(model, f)

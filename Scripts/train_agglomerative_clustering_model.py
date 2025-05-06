@@ -41,8 +41,8 @@ def train_model(data_path, model_path, clustered_data_path, dendrogram_path, clu
     plt.title('Clustering of Student Performance')
     plt.xlabel('PCA Component 1')
     plt.ylabel('PCA Component 2')
-    plt.savefig(clusters_plot_path)
     plt.show()
+    plt.savefig(clusters_plot_path)
 
 if __name__ == "__main__":
     train_model("../Data/avg_data.csv", "../Models/agglomerative_clustering_model.pkl", "../Results/hc_clustered_data.csv", "../Results/Plots/dendrogram.png", "../Results/Plots/hc_clusters.png")
