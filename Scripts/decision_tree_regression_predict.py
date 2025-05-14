@@ -38,7 +38,6 @@ def make_predictions(input_data, model_path, output_path, plot_path):
     data.to_csv(output_path, index = False)
     print(f"Predictions saved to {output_path}")
 
-    plt.figure(figsize = (10, 6))
     plt.plot(data['Final Exam'], label = "Actual Grades", color = 'blue', marker = 'o')
     plt.plot(data['Predicted Final'], label = "Predicted Grades", color = 'red', marker = 'x')
     plt.title("Actual vs Predicted Grades")
